@@ -1,6 +1,5 @@
 package io.turntabl.student;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +11,7 @@ public class StudentTest {
 
     @BeforeEach
     void setUp() {
-        grades = List.of(12.23, 34.70, 55.90);
+        grades = List.of(20.00, 30.00, 40.00, 10.00);
     }
 
     @Test
@@ -24,11 +23,10 @@ public class StudentTest {
     @Test
     void testGetAverageGrade() {
         Student student = new Student(grades);
-        DecimalFormat df = new DecimalFormat("0.00");
 
-        double expected = 102.83 / grades.size();
+        double expected = 100.00 / grades.size();
         double actual = student.getAverageGrade();
 
-        Assertions.assertEquals(df.format(expected), df.format(actual));
+        Assertions.assertEquals(expected, actual);
     }
 }

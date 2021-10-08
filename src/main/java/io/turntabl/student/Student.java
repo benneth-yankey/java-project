@@ -15,7 +15,6 @@ public class Student {
     }
 
     public double getAverageGrade() {
-        double sumOfGrade = getGrades().stream().reduce(0.00, (grade, accum) -> grade + accum).doubleValue();
-        return sumOfGrade / grades.size();
+        return getGrades().stream().mapToDouble(grade -> grade).average().getAsDouble();
     }
 }
