@@ -7,16 +7,20 @@ import io.turntabl.student.Student;
 
 public class Lecture {
     // stores student list
-    List<Student> studentList = new ArrayList<>();
+    private List<Student> studentList = new ArrayList<>();
 
     // adds student to student list
     public void enter(Student student) {
         studentList.add(student);
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
     // returns the student with highest average grade
     public double getHighestAverageGrade() {
-        List<Double> grades = studentList.stream().map(student -> student.getAverageGrade()).sorted().toList();
+        List<Double> grades = getStudentList().stream().map(student -> student.getAverageGrade()).sorted().toList();
         return grades.get(grades.size() - 1);
     }
 }
