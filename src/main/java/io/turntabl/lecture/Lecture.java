@@ -20,7 +20,7 @@ public class Lecture {
 
     // returns the student with highest average grade
     public double getHighestAverageGrade() {
-        List<Double> grades = getStudentList().stream().map(student -> student.getAverageGrade()).sorted().toList();
+        List<Double> grades = getStudentList().stream().map(Student::getAverageGrade).sorted().toList();
         return grades.get(grades.size() - 1);
     }
 }
