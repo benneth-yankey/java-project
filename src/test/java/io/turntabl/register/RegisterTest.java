@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import io.turntabl.enums.Level;
 import io.turntabl.interfaces.Nameable;
+import io.turntabl.student.NaughtyStudent;
 import io.turntabl.student.Student;
 
 public class RegisterTest {
@@ -42,9 +43,32 @@ public class RegisterTest {
         List<Nameable> students = List.of(student1, student2);
         Register register = new Register(students);
 
-       // then
-       Assertions.assertEquals(List.of("student1", "student2"), register.getRegisterByLevel(Level.ONE));
-       Assertions.assertEquals(2, register.getRegisterByLevel(Level.ONE).size());
-       Assertions.assertEquals(List.of(), register.getRegisterByLevel(Level.TWO)); 
+        // then
+        Assertions.assertEquals(List.of("student1", "student2"), register.getRegisterByLevel(Level.ONE));
+        Assertions.assertEquals(2, register.getRegisterByLevel(Level.ONE).size());
+        Assertions.assertEquals(List.of(), register.getRegisterByLevel(Level.TWO));
+    }
+
+    @Test
+    void testThatReportReturnsListOfNamesGroupedByTheirLevel() {
+        // given
+        Student student1 = new Student(List.of(80.00, 70.00), Level.THREE);
+        Student student2 = new Student(List.of(65.00, 85.00), Level.THREE);
+        Student naughStudent1 = new NaughtyStudent(List.of(15.00, 20.00), Level.ONE);
+        Student naughStudent2 = new NaughtyStudent(List.of(30.00, 40.00), Level.TWO);
+
+        student1.setName("student1");
+        student2.setName("student2");
+        naughStudent1.setName("naughtystudent1");
+        naughStudent2.setName("naughtystudent2");
+
+        // when
+        List<Nameable> students = List.of(student1, student2, naughStudent1, naughStudent2);
+        Register register = new Register(students);
+
+        // then
+        String expected = "{ONE=[naughtystudent1], TWO=[naughtystudent2], THREE=[student1, student2]}";
+        String actual = register.printReport();
+        Assertions.assertEquals(expected, actual);
     }
 }
