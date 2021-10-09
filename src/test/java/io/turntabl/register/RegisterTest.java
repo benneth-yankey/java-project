@@ -25,7 +25,26 @@ public class RegisterTest {
         Register register = new Register(students);
 
         // then
-        int expected = 2;
-        Assertions.assertEquals(expected, register.getNameables().size());
+        Assertions.assertEquals(2, register.getNameables().size());
+        Assertions.assertEquals(students, register.getNameables());
+    }
+
+    @Test
+    void testThatListOfNamesByGivenLevelAreReturnedOrAnEmptyList() {
+        // given
+        Student student1 = new Student(List.of(20.00, 30.00), Level.ONE);
+        Student student2 = new Student(List.of(30.00, 40.00), Level.ONE);
+
+        student1.setName("student1");
+        student2.setName("student2");
+
+        // when
+        List<Nameable> students = List.of(student1, student2);
+        Register register = new Register(students);
+
+       // then
+       Assertions.assertEquals(List.of("student1", "student2"), register.getRegisterByLevel(Level.ONE));
+       Assertions.assertEquals(2, register.getRegisterByLevel(Level.ONE).size());
+       Assertions.assertEquals(List.of(), register.getRegisterByLevel(Level.TWO)); 
     }
 }
