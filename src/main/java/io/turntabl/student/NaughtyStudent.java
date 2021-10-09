@@ -8,9 +8,9 @@ public class NaughtyStudent extends Student {
         super(grades);
     }
 
+    // returns 10% increase in the average grade
     @Override
     public double getAverageGrade() {
-        double percentIncrease = 0.1;
-        return getAverageGrade() + (getAverageGrade() * percentIncrease);
+        return super.getAverageGrade() + 1.1;
     }
 }

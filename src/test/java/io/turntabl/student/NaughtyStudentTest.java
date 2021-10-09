@@ -19,19 +19,4 @@ public class NaughtyStudentTest {
         Assertions.assertNotEquals(expected, actual);
         Assertions.assertTrue(expected > actual);
     }
-
-    // @Test
-    // void testThatScoresAreHigherThanTheyOughtToBe() {
-    //     Lecture lecture = new Lecture();
-    //     lecture.enter(new NaughtyStudent(List.of(15.00, 20.00, 25.00)));
-    //     lecture.enter(new NaughtyStudent(List.of(5.00, 5.00, 20.00)));
-
-    //     List<Double> averageGrades = lecture.getStudentList().stream().map(student -> student.getAverageGrade()).toList();
-
-    //     double expected = 20.00;
-    //     Assertions.assertTrue(expected < averageGrades.get(0));
-
-    //     expected = 10.0;
-    //     Assertions.assertTrue(expected < averageGrades.get(1));
-    // }
 }
