@@ -2,12 +2,23 @@ package io.turntabl.student;
 
 import java.util.List;
 
-public class Student {
+import io.turntabl.interfaces.Nameable;
+
+public class Student implements Nameable {
 
     private List<Double> grades;
+    private String name;
 
     public Student(List<Double> grades) {
         this.grades = grades;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public List<Double> getGrades() {
