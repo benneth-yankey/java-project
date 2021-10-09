@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import io.turntabl.enums.Level;
+
 public class StudentTest {
     List<Double> grades;
 
@@ -16,13 +18,13 @@ public class StudentTest {
 
     @Test
     void testThatStudentIsCreated() {
-        Student student = new Student(grades);
+        Student student = new Student(grades, Level.ONE);
         Assertions.assertNotNull(student);
     }
 
     @Test
     void testGetAverageGrade() {
-        Student student = new Student(grades);
+        Student student = new Student(grades, Level.TWO);
 
         double expected = 100.00 / grades.size();
         double actual = student.getAverageGrade();

@@ -5,12 +5,14 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import io.turntabl.enums.Level;
+
 public class NaughtyStudentTest {
 
     @Test
     void testThatAverageGradeIsHigherBy10Percent() {
         List<Double> grades = List.of(20.00, 30.00, 40.00, 10.00);
-        Student student = new Student(grades);
+        Student student = new Student(grades, Level.TWO);
 
         double percentIncreasee = 0.1;
         double expected = (100.00 / grades.size()) + percentIncreasee;
