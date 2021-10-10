@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -21,7 +22,7 @@ public class Register {
     }
 
     // returns list of nameables (students)
-    public List<Student> getNameables() {
+    public List<Student> getStudents() {
         return students;
     }
 
@@ -44,5 +45,9 @@ public class Register {
         // convert a Map to a TreeMap to sort keys
         TreeMap<Level, List<String>> s = new TreeMap<>(map);
         return s.toString();
+    }
+
+    public List<Student> sort(Comparator<Student> comparator) {
+        return students.stream().sorted(comparator).toList();
     }
 }
