@@ -34,6 +34,6 @@ public class Student implements Nameable, HasLevel {
     }
 
     public double getAverageGrade() {
-        return getGrades().stream().mapToDouble(grade -> grade).average().getAsDouble();
+        return grades.stream().mapToDouble(grade -> grade).average().getAsDouble();
     }
 }
