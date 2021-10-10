@@ -1,6 +1,7 @@
 package io.turntabl.register;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,7 +31,7 @@ public class RegisterTest {
     }
 
     @Test
-    void testThatListOfNamesByGivenLevelAreReturnedOrAnEmptyList() {
+    void testThatListOfStudentsInALevelAreReturned() {
         // given
         Student student1 = new Student(List.of(20.00, 30.00), Level.ONE);
         Student student2 = new Student(List.of(30.00, 40.00), Level.ONE);
@@ -43,9 +44,8 @@ public class RegisterTest {
         Register register = new Register(students);
 
         // then
-        Assertions.assertEquals(List.of("student1", "student2"), register.getRegisterByLevel(Level.ONE));
-        Assertions.assertEquals(2, register.getRegisterByLevel(Level.ONE).size());
-        Assertions.assertEquals(List.of(), register.getRegisterByLevel(Level.TWO));
+        Assertions.assertEquals(1, register.getRegisterByLevel(Level.ONE).size());
+        Assertions.assertEquals(Map.of(), register.getRegisterByLevel(Level.TWO));
     }
 
     @Test

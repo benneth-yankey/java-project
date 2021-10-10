@@ -31,8 +31,9 @@ public class Register {
     }
 
     // returns names of nameables by level
-    public List<String> getRegisterByLevel(Level level) {
-        return students.stream().filter(student -> student.getLevel().equals(level)).map(Student::getName).toList();
+    public Map<Level, List<Student>> getRegisterByLevel(Level level) {
+        return students.stream().filter(student -> student.getLevel().equals(level))
+                .collect(groupingBy(Student::getLevel));
     }
 
     // returns names of nameables grouped by their level
