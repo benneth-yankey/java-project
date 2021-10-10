@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.turntabl.enums.Level;
-import io.turntabl.interfaces.Nameable;
 import io.turntabl.student.NaughtyStudent;
 import io.turntabl.student.Student;
 
@@ -22,7 +21,7 @@ public class RegisterTest {
         student2.setName("student2");
 
         // when
-        List<Nameable> students = List.of(student1, student2);
+        List<Student> students = List.of(student1, student2);
         Register register = new Register(students);
 
         // then
@@ -40,7 +39,7 @@ public class RegisterTest {
         student2.setName("student2");
 
         // when
-        List<Nameable> students = List.of(student1, student2);
+        List<Student> students = List.of(student1, student2);
         Register register = new Register(students);
 
         // then
@@ -63,7 +62,7 @@ public class RegisterTest {
         naughStudent2.setName("naughtystudent2");
 
         // when
-        List<Nameable> students = List.of(student1, student2, naughStudent1, naughStudent2);
+        List<Student> students = List.of(student1, student2, naughStudent1, naughStudent2);
         Register register = new Register(students);
 
         // then
