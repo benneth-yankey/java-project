@@ -1,6 +1,8 @@
 package io.turntabl.student;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 import io.turntabl.enums.Level;
 import io.turntabl.interfaces.HasLevel;
@@ -35,5 +37,9 @@ public class Student implements Nameable, HasLevel {
 
     public double getAverageGrade() {
         return grades.stream().mapToDouble(grade -> grade).average().getAsDouble();
+    }
+
+    public DoubleStream getGradesAsDoubleStream() {
+        return grades.stream().mapToDouble(grade -> grade);
     }
 }
